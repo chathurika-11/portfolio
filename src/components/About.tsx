@@ -63,7 +63,7 @@ const About = () => {
           data-aos="fade-right"
         >
           <img
-            src="/portfolio/src/asserts/girlworking.png"
+            src="/src/asserts/girlworking.png"
             alt="Profile"
             style={{
               width: '100%',
