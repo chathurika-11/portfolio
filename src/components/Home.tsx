@@ -194,7 +194,13 @@ const Home = () => {
           sx={{ 
             textAlign: 'left',
             width: '100%',
-            maxWidth: '1000px'
+            maxWidth: '1000px',
+            p: 4,
+            borderRadius: 2,
+            background: 'rgba(255, 255, 255, 0.9)',
+            boxShadow: '0 8px 32px rgba(149, 117, 205, 0.15)',
+            border: '1px solid rgba(149, 117, 205, 0.1)',
+            backdropFilter: 'blur(8px)'
           }} 
           data-aos="fade-up"
         >
@@ -202,12 +208,20 @@ const Home = () => {
             variant="body1"
             sx={{
               color: 'text.secondary',
-              lineHeight: 1.8,
-              fontSize: '1.1rem'
+              lineHeight: 2,
+              fontSize: '1.1rem',
+              '& > div': {
+                mb: 2,
+                '&:last-child': {
+                  mb: 0
+                }
+              }
             }}
           >
-            Passionate about ensuring software quality through comprehensive testing methodologies and automation practices.
-            Let's create reliable and user-friendly applications together.
+            <div>💻 Passionate about delivering high-quality software</div>
+            <div>🔍 Dedicated to finding defects and improving quality</div>
+            <div>🤝 Excited to collaborate and build great software</div>
+            <div>📚 Always open to learning and growing</div>
           </Typography>
         </Box>
       </Box>

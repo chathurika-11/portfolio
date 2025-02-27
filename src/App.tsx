@@ -15,6 +15,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Blog from './components/Blog'
+import Recommendations from './components/Recommendations'
 
 const App = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -31,6 +32,7 @@ const App = () => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
+    { id: 'recommendations', label: 'Recommendations' },
     { id: 'blog', label: 'Blog' }
   ]
 
@@ -164,6 +166,9 @@ const App = () => {
         </Box>
         <Box id="experience" minHeight="100vh" data-aos="fade-up">
           <Experience />
+        </Box>
+        <Box id="recommendations" minHeight="100vh" data-aos="fade-up">
+          <Recommendations />
         </Box>
         <Box id="blog" minHeight="100vh" data-aos="fade-up">
           <Blog />

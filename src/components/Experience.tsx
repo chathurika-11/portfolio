@@ -6,36 +6,63 @@ import WorkIcon from '@mui/icons-material/Work'
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior QA Engineer',
-      company: 'Current Company',
-      date: '2021 - Present',
-      description: 'Leading QA initiatives and implementing automated testing frameworks for enterprise applications.',
+      title: 'Software QA Engineer',
+      company: 'SleekFlow - Malaysia',
+      date: '2023 March - 2024 March',
+      description: 'Omnichannel | SleekFlow Web and Mobile Application | Social Media Integrations | ClickUp | E-commerce Platform (Shopify)',
       details: [
-        'Designed and implemented end-to-end test automation frameworks',
-        'Mentored junior QA engineers and conducted knowledge sharing sessions',
-        'Improved test coverage by 40% through strategic test planning'
+        'Reviewed requirements to design test scenarios.',
+        'Designed, executed, and maintained test cases.',
+        'Prepared test data for testing SleekFlow web and mobile applications.',
+        'Experienced in mobile testing using iOS and Android devices & Android Studio.',
+        'Tested mobile app integrations across WhatsApp, Instagram, Facebook, Telegram, Viber, and Line.',
+        'Performed manual testing using different types of testing(Regression, System, Smoke, Sanity, Re-testing, UI/UX and Ad-hoc testing).',
+        'Identified, reported and tracked defects.',
+        'Experienced with Agile methodologies.',
+        'Mentored and Supported junior resources.',
+        'Delivered the QA tasks according to deadlines.',
+        'Created and maintained Notion pages for project purposes.',
+        'Collaborated closely with the project manager and customer support team to ensure the requirements and test scope.',
+        'Participated in QA Hiring Interviews and QA Weekly Syncs with QA team members.',
+        'Initiated learning and implementation of automation testing using Cypress and Katalon.',
       ]
     },
     {
-      title: 'QA Engineer',
-      company: 'Previous Company',
-      date: '2019 - 2021',
-      description: 'Specialized in API testing and continuous integration practices.',
+      title: 'Software QA Engineer',
+      company: 'Zincat Technology - Sri Lanka',
+      date: '2022 January - 2022 August',
+      description: 'Telecommunication | Dialog OneCRM | API Testing | Postman',
       details: [
-        'Developed and maintained API test suites using REST Assured',
-        'Implemented CI/CD pipelines for test automation',
-        'Reduced regression testing time by 60%'
+        'Reviewed requirements to design test scenarios.',
+        'Designed, executed, and maintained test cases',
+        'Performed manual testing using different types of testing (Functional testing types, Data Base testing, Re-testing and Ad-hoc testing).',
+        'Conducted cross-browser compatibility testing',
+        'API testing using Postman.',
+        'Identified, reported defects.',
+        'Reported test results and cooperated with the development team.',
+        'Delivered the QA tasks according to deadlines.',
       ]
     },
     {
-      title: 'Junior QA Engineer',
-      company: 'First Company',
-      date: '2018 - 2019',
-      description: 'Started career in software testing with focus on manual testing.',
+      title: 'Software QA Engineer',
+      company: 'Virtusa Pvt Ltd - Sri Lanka',
+      date: '2018 December - 2021 December',
+      description: 'Software Security | Web Application | Cross-browser Testing | Database Testing | Jira',
       details: [
-        'Executed manual test cases for web applications',
-        'Created detailed test documentation and bug reports',
-        'Participated in agile ceremonies and sprint planning'
+        'Reviewed requirements to design test scenarios.',
+        'Designed, executed, and maintained test cases.',
+        'Prepared Test data.',
+        'Performed manual testing using different types of testing (Functional testing types, re-testing, Database testing, Cross-Browser testing and Ad-hoc testing).',
+        'Experienced in writing SQL queries using MySQL.',
+        'Identified, reported and tracked defects.',
+        'Reported test results and cooperated with the development team.',
+        'Collaborated with development team in agile environment',
+        'Analysed and identified the root cause of failures.',
+        'Troubleshoot ActiveBatch deployment failures and perform manual deployments.',
+        'Reviewed test cases (Peer review). Assisted senior team members in testing.',
+        'Created and maintained user manuals and wiki pages for project purposes.',
+        'Used Jira as a Defect tracking and test cases management tool.',
+        'Delivered the QA tasks according to deadlines.',
       ]
     }
   ]
