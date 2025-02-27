@@ -60,7 +60,7 @@ const Home = () => {
             data-aos="fade-right"
           >
             <Avatar
-              src="/src/asserts/profile-pic.png"
+              src="src/asserts/profile-pic.png"
               alt="Chathurika Ariyarathne"
               sx={{
                 width: { xs: 120, md: 150 },
@@ -210,18 +210,19 @@ const Home = () => {
               color: 'text.secondary',
               lineHeight: 2,
               fontSize: '1.1rem',
-              '& > div': {
+              '& > span': {
                 mb: 2,
+                display: 'block',
                 '&:last-child': {
                   mb: 0
                 }
               }
             }}
           >
-            <div>💻 Passionate about delivering high-quality software</div>
-            <div>🔍 Dedicated to finding defects and improving quality</div>
-            <div>🤝 Excited to collaborate and build great software</div>
-            <div>📚 Always open to learning and growing</div>
+            <span>💻 Passionate about delivering high-quality software</span>
+            <span>🔍 Dedicated to finding defects and improving quality</span>
+            <span>🤝 Excited to collaborate and build great software</span>
+            <span>📚 Always open to learning and growing</span>
           </Typography>
         </Box>
       </Box>
