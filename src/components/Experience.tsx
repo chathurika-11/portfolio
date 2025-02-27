@@ -1,9 +1,18 @@
-import { Typography, Container } from '@mui/material'
+import { Typography, Container, Box, Dialog, IconButton } from '@mui/material'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
 import WorkIcon from '@mui/icons-material/Work'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import CloseIcon from '@mui/icons-material/Close'
+import { useState } from 'react'
 
 const Experience = () => {
+  const [selectedExp, setSelectedExp] = useState<number | null>(null)
+
+  const handleClose = () => {
+    setSelectedExp(null)
+  }
+
   const experiences = [
     {
       title: 'Software QA Engineer',
@@ -111,38 +120,166 @@ const Experience = () => {
             <Typography variant="body1" sx={{ mb: 2 }}>
               {exp.description}
             </Typography>
-            <div style={{ position: 'relative' }}>
-              <Typography
-                variant="body2"
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <IconButton
+                onClick={() => setSelectedExp(index)}
                 sx={{
-                  cursor: 'pointer',
                   color: 'primary.main',
-                  '&:hover': { textDecoration: 'underline' }
-                }}
-                onClick={(e) => {
-                  const target = e.currentTarget.nextElementSibling
-                  if (target instanceof HTMLElement) {
-                    target.style.display = target.style.display === 'none' ? 'block' : 'none'
-                  }
+                  backgroundColor: 'rgba(149, 117, 205, 0.1)',
+                  '&:hover': {
+                    backgroundColor: '#9575cd',
+                    color: '#fff',
+                    transform: 'scale(1.1)'
+                  },
+                  transition: 'all 0.3s ease-in-out'
                 }}
               >
-                See More
-              </Typography>
-              <div style={{ display: 'none', marginTop: '1rem' }}>
-                <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
-                  {exp.details.map((detail, i) => (
-                    <li key={i}>
-                      <Typography variant="body2" sx={{ mb: 1 }}>
-                        {detail}
-                      </Typography>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                <VisibilityIcon />
+              </IconButton>
+            </Box>
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
+
+      <Dialog
+        open={selectedExp !== null}
+        onClose={handleClose}
+        maxWidth="md"
+        fullWidth
+        PaperProps={{
+          sx: {
+            background: 'rgba(255, 255, 255, 0.95)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '16px',
+            boxShadow: '0 8px 32px rgba(149, 117, 205, 0.15)',
+            border: '1px solid rgba(149, 117, 205, 0.1)',
+            p: 4,
+            position: 'relative',
+            overflow: 'hidden',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'linear-gradient(135deg, rgba(149, 117, 205, 0.1) 0%, rgba(149, 117, 205, 0) 100%)',
+              zIndex: 0
+            }
+          }
+        }}
+        TransitionProps={{
+          timeout: 500,
+          style: {
+            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+          }
+        }}
+      >
+        {selectedExp !== null && (
+          <>
+            <IconButton
+              onClick={handleClose}
+              sx={{
+                position: 'absolute',
+                right: 16,
+                top: 16,
+                color: 'primary.main',
+                backgroundColor: 'rgba(149, 117, 205, 0.1)',
+                '&:hover': {
+                  backgroundColor: '#9575cd',
+                  color: '#fff',
+                  transform: 'rotate(90deg) scale(1.1)'
+                },
+                transition: 'all 0.3s ease-in-out'
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+
+            <Box sx={{ position: 'relative', zIndex: 1 }}>
+              <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 600, mb: 2 }}>
+                {experiences[selectedExp].title}
+              </Typography>
+              <Typography variant="subtitle1" sx={{ color: 'text.secondary', mb: 3 }}>
+                {experiences[selectedExp].company} • {experiences[selectedExp].date}
+              </Typography>
+              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
+                {experiences[selectedExp].description}
+              </Typography>
+              <Box
+                sx={{
+                  p: 3,
+                  borderRadius: 2,
+                  background: 'rgba(255, 255, 255, 0.5)',
+                  backdropFilter: 'blur(5px)',
+                  border: '1px solid rgba(149, 117, 205, 0.2)',
+                  maxHeight: '60vh',
+                  overflowY: 'auto',
+                  '&::-webkit-scrollbar': {
+                    width: '8px',
+                  },
+                  '&::-webkit-scrollbar-track': {
+                    background: 'rgba(149, 117, 205, 0.1)',
+                    borderRadius: '4px',
+                  },
+                  '&::-webkit-scrollbar-thumb': {
+                    background: 'rgba(149, 117, 205, 0.3)',
+                    borderRadius: '4px',
+                    '&:hover': {
+                      background: 'rgba(149, 117, 205, 0.5)',
+                    },
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2
+                  }}
+                >
+                  {experiences[selectedExp].details.map((detail, i) => (
+                    <Box
+                      key={i}
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        transition: 'all 0.3s ease-in-out',
+                        '&:hover': {
+                          transform: 'translateX(8px)'
+                        },
+                        position: 'relative',
+                        paddingLeft: '20px',
+                        '&::before': {
+                          content: '"•"',
+                          position: 'absolute',
+                          left: 0,
+                          top: '-2px',
+                          color: '#9575cd',
+                          fontSize: '1.2rem',
+                          lineHeight: 1.6
+                        }
+                      }}
+                    >
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: 'text.secondary',
+                          lineHeight: 1.6,
+                          flex: 1
+                        }}
+                      >
+                        {detail}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            </Box>
+          </>
+        )}
+      </Dialog>
     </Container>
   )
 }

@@ -24,7 +24,12 @@ const Blog = () => {
           setPosts(
             items.map((item: any) => ({
               title: item.title,
-              thumbnail: item.thumbnail && item.thumbnail !== '' ? item.thumbnail : 'https://picsum.photos/800/400?grayscale',
+              thumbnail: (() => {
+                // Try to extract the first image from the article content
+                const content = item.content || ''
+                const imgMatch = content.match(/<img[^>]+src="([^"]+)"[^>]*>/)
+                return imgMatch ? imgMatch[1] : item.thumbnail || ''
+              })(),
               link: item.link,
               pubDate: new Date(item.pubDate).toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -74,12 +79,22 @@ const Blog = () => {
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                background: 'rgba(255, 255, 255, 0.9)',
-                transition: 'all 0.3s ease-in-out',
-                p: 2,
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                position: 'relative',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                border: '1px solid rgba(149, 117, 205, 0.1)',
                 '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 8px 24px rgba(149, 117, 205, 0.2)'
+                  transform: 'translateY(-8px) scale(1.02)',
+                  boxShadow: '0 12px 28px rgba(149, 117, 205, 0.25)',
+                  '& .blog-card-media::before': {
+                    opacity: 0.7
+                  },
+                  '& .blog-card-content': {
+                    transform: 'translateY(0)'
+                  }
                 }
               }}
             >
@@ -91,23 +106,69 @@ const Blog = () => {
                 sx={{
                   height: '100%',
                   display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'space-between'
+                  flexDirection: 'column'
                 }}
               >
-                <CardContent sx={{ p: 0, flex: 1 }}>
+                <Box
+                  className="blog-card-media"
+                  sx={{
+                    position: 'relative',
+                    height: 220,
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, rgba(149, 117, 205, 0.2) 0%, rgba(149, 117, 205, 0.8) 100%)',
+                      opacity: 0.5,
+                      transition: 'opacity 0.4s ease-in-out',
+                      zIndex: 1
+                    }
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image={post.thumbnail}
+                    alt={post.title}
+                    sx={{
+                      height: '100%',
+                      width: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </Box>
+                <CardContent
+                  className="blog-card-content"
+                  sx={{
+                    position: 'relative',
+                    zIndex: 2,
+                    p: 3,
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    transform: 'translateY(0)',
+                    transition: 'transform 0.4s ease-in-out'
+                  }}
+                >
                   <Typography
                     variant="h6"
                     component="div"
                     sx={{
                       color: 'primary.main',
-                      mb: 2,
-                      fontWeight: 600,
+                      fontWeight: 700,
+                      fontSize: '1.1rem',
                       lineHeight: 1.4,
+                      mb: 2,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
                       transition: 'color 0.3s ease-in-out',
                       '&:hover': {
-                        color: 'primary.dark'
+                        background: 'linear-gradient(45deg, #9575cd 30%, #b39ddb 90%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent'
                       }
                     }}
                   >
@@ -117,13 +178,23 @@ const Blog = () => {
                     variant="caption"
                     sx={{
                       color: 'text.secondary',
-                      display: 'block',
-                      mt: 'auto',
-                      pt: 2,
-                      borderTop: '1px solid rgba(149, 117, 205, 0.1)'
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1,
+                      fontSize: '0.75rem',
+                      fontWeight: 500,
+                      '&::before': {
+                        content: '""',
+                        display: 'inline-block',
+                        width: 4,
+                        height: 4,
+                        borderRadius: '50%',
+                        backgroundColor: 'primary.main',
+                        opacity: 0.7
+                      }
                     }}
                   >
-                    Published on {post.pubDate}
+                    {post.pubDate}
                   </Typography>
                 </CardContent>
               </CardActionArea>

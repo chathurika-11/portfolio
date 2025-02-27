@@ -24,7 +24,7 @@ const Skills = () => {
     {
       title: 'Platforms',
       icon: <CodeIcon />,
-      skills: ['Web Applications','Web Applications(iOS & Android)','macOS','Windows','Shopify','Social Media Integrations']
+      skills: ['Web Applications','Mobile Applications(iOS & Android)','macOS','Windows','Shopify','Social Media Integrations']
     }
   ]
 

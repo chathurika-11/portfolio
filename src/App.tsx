@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Box, IconButton, List, ListItem, ListItemText, Container, AppBar, Fab, Popover } from '@mui/material'
+import { useState, useEffect } from 'react'
+import { Box, List, ListItem, ListItemText, Container, AppBar, Fab, Popover } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
-import EmailIcon from '@mui/icons-material/Email'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import ArticleIcon from '@mui/icons-material/Article'
+
 import { Link } from 'react-scroll'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -36,11 +34,11 @@ const App = () => {
     { id: 'blog', label: 'Blog' }
   ]
 
-  const socialLinks = [
+  /* const socialLinks = [
     { icon: <EmailIcon />, url: 'mailto:chathucm2013@gmail.com', label: 'Email' },
     { icon: <LinkedInIcon />, url: 'https://www.linkedin.com/in/chathurika-ariyarathne/', label: 'LinkedIn' },
     { icon: <ArticleIcon />, url: 'https://medium.com/@chathucm2013', label: 'Medium' }
-  ]
+  ] */
 
   return (
     <Box sx={{ position: 'relative', minHeight: '100vh' }}>
