@@ -3,6 +3,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css'
 import WorkIcon from '@mui/icons-material/Work'
 import VisibilityIcon from '@mui/icons-material/Visibility'
+import AttachFileIcon from '@mui/icons-material/AttachFile'
 import CloseIcon from '@mui/icons-material/Close'
 import { useState } from 'react'
 
@@ -11,6 +12,10 @@ const Experience = () => {
 
   const handleClose = () => {
     setSelectedExp(null)
+  }
+
+  const handleDownload = () => {
+    window.open('/portfolio/QA Lead_Recommendation.pdf', '_blank')
   }
 
   const experiences = [
@@ -120,7 +125,24 @@ const Experience = () => {
             <Typography variant="body1" sx={{ mb: 2 }}>
               {exp.description}
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
+              {index === 0 && (
+                <IconButton
+                  onClick={handleDownload}
+                  sx={{
+                    color: 'primary.main',
+                    backgroundColor: 'rgba(149, 117, 205, 0.1)',
+                    '&:hover': {
+                      backgroundColor: '#9575cd',
+                      color: '#fff',
+                      transform: 'scale(1.1)'
+                    },
+                    transition: 'all 0.3s ease-in-out'
+                  }}
+                >
+                  <AttachFileIcon />
+                </IconButton>
+              )}
               <IconButton
                 onClick={() => setSelectedExp(index)}
                 sx={{

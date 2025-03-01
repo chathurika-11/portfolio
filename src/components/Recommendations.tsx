@@ -12,13 +12,13 @@ const Recommendations = () => {
       name: 'Paul Lo',
       role: 'Staff Engineer',
       company: 'Sleekflow',
-      text: 'I am writing to highly recommend Chathurika for her exceptional qualities as a Quality Assurance (QA) professional. During her time in this role in sleekflow, Chathurika has consistently demonstrated a strong sense of responsibility and a proactive approach to ensuring the quality and accuracy of deliverables. One of Chathurika\'s standout attributes is her unwavering commitment to clarity and precision. She takes the initiative to address and resolve any ambiguities, ensuring that all stakeholders are aligned. Her willingness to clarify uncertainties and provide detailed explanations fosters a productive and collaborative work environment. In addition to her technical expertise, Chathurika is approachable, dependable, and consistently rises to the challenge of maintaining high standards in her work.'
+      text: 'I am writing to highly recommend Chathurika for her exceptional qualities as a Quality Assurance (QA) professional. During her time in this role in sleekflow, Chathurika has consistently demonstrated a strong sense of responsibility and a proactive approach to ensuring the quality and accuracy of deliverables. One of Chathurika\'s standout attributes is her unwavering commitment to clarity and precision. She takes the initiative to address and resolve any ambiguities, ensuring that all stakeholders are aligned. Her willingness to clarify uncertainties and provide detailed explanations fosters a productive and collaborative work environment. In addition to her technical expertise, Chathurika is approachable, dependable, and consistently rises to the challenge of maintaining high standards in her work. I am confident that she will continue to excel and add value wherever she contributes.'
     },
     {
       name: 'Ade Pratama',
       role: 'QA Engineer',
       company: 'Sleekflow',
-      text: 'I had the privilege of working closely with Chathu at Sleekflow as a fellow QA Engineer. Throughout our time together, Chathu consistently played a key role in ensuring our products met the highest quality standards. Her keen "eagle eyes" during the testing process enabled us to catch and resolve potential issues early in the development cycle. Chathu is a highly collaborative person. She worked seamlessly with developers, product managers, and other stakeholders, maintaining clear communication and ensuring that challenges were addressed promptly. Beyond her technical abilities, Chathu brings a positive attitude and a strong work ethic to every task. She is dependable, hardworking, and always eager to learn and improve.'
+      text: 'I had the privilege of working closely with Chathu at Sleekflow as a fellow QA Engineer. Throughout our time together, Chathu consistently played a key role in ensuring our products met the highest quality standards. Her keen "eagle eyes" during the testing process enabled us to catch and resolve potential issues early in the development cycle. Chathu is a highly collaborative person. She worked seamlessly with developers, product managers, and other stakeholders, maintaining clear communication and ensuring that challenges were addressed promptly. Beyond her technical abilities, Chathu brings a positive attitude and a strong work ethic to every task. She is dependable, hardworking, and always eager to learn and improve. I highly recommend her for any future opportunities in a QA Engineer role.'
     },
     {
       name: 'Joyce Lin',
@@ -60,7 +60,7 @@ const Recommendations = () => {
         variant="h3"
         component="h2"
         sx={{
-          mb: 6,
+          mb: 2,
           textAlign: 'center',
           background: 'linear-gradient(45deg, #9575cd 30%, #b39ddb 90%)',
           WebkitBackgroundClip: 'text',
@@ -70,6 +70,34 @@ const Recommendations = () => {
         data-aos="fade-up"
       >
         Recommendations
+      </Typography>
+      <Typography
+        variant="h6"
+        component="h3"
+        sx={{
+          mb: 6,
+          textAlign: 'center',
+          color: 'text.secondary',
+          fontStyle: 'italic',
+          position: 'relative',
+          '&::before, &::after': {
+            content: '"\u201C"',
+            position: 'absolute',
+            fontSize: '1.5em',
+            color: 'rgba(149, 117, 205, 0.2)',
+            top: -10,
+            left: -20
+          },
+          '&::after': {
+            content: '"\u201D"',
+            left: 'auto',
+            right: -20
+          }
+        }}
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Words of appreciation from those who have seen my work in action.
       </Typography>
 
       <Box
