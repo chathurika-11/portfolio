@@ -60,7 +60,7 @@ const Home = () => {
             data-aos="fade-right"
           >
             <Avatar
-              src="/src/asserts/profile-pic.png"
+              src="./src/asserts/profile-pic.png"
               alt="Chathurika Ariyarathne"
               sx={{
                 width: { xs: 120, md: 150 },
