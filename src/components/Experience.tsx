@@ -23,7 +23,7 @@ const Experience = () => {
       title: 'Software QA Engineer',
       company: 'SleekFlow - Malaysia',
       date: '2023 March - 2024 March',
-      description: 'Omnichannel | SleekFlow Web and Mobile Application | Social Media Integrations | ClickUp | E-commerce Platform (Shopify)',
+      description: 'Omnichannel Platform | SleekFlow Web and Mobile Application | Social Media Integrations | E-commerce Platform (Shopify) | ClickUp',
       details: [
         'Reviewed requirements to design test scenarios.',
         'Designed, executed, and maintained test cases.',
@@ -45,7 +45,7 @@ const Experience = () => {
       title: 'Software QA Engineer',
       company: 'Zincat Technology - Sri Lanka',
       date: '2022 January - 2022 August',
-      description: 'Telecommunication | Dialog OneCRM | API Testing | Postman',
+      description: 'Telecommunication Platform | Dialog OneCRM | API Testing(Postman)',
       details: [
         'Reviewed requirements to design test scenarios.',
         'Designed, executed, and maintained test cases',
@@ -61,7 +61,7 @@ const Experience = () => {
       title: 'Software QA Engineer',
       company: 'Virtusa Pvt Ltd - Sri Lanka',
       date: '2018 December - 2021 December',
-      description: 'Software Security | Web Application | Cross-browser Testing | Database Testing | Jira',
+      description: 'Software Security Platform| Web Application | Cross-Browser Testing | Database Testing | Jira',
       details: [
         'Reviewed requirements to design test scenarios.',
         'Designed, executed, and maintained test cases.',
@@ -89,10 +89,29 @@ const Experience = () => {
         sx={{
           mb: 6,
           textAlign: 'center',
-          background: 'linear-gradient(45deg, #9575cd 30%, #b39ddb 90%)',
+          background: 'linear-gradient(45deg, rgb(169, 144, 212) 30%, #9575cd 90%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          fontWeight: 700
+          fontWeight: 700,
+          transform: 'scale(1)',
+          transition: 'transform 0.3s ease-in-out',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+          position: 'relative',
+          WebkitTextStroke: '2px #000',
+          filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
+          '&::before': {
+            content: '"Experience"',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(45deg, rgb(169, 144, 212) 30%, #9575cd 90%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '0',
+            zIndex: 2
+          }
         }}
         data-aos="fade-up"
       >
@@ -119,9 +138,44 @@ const Experience = () => {
             <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 600 }}>
               {exp.title}
             </Typography>
-            <Typography variant="subtitle1" sx={{ color: 'text.secondary', mb: 2 }}>
-              {exp.company}
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+              <Box
+                component="img"
+                src={`/portfolio/${index === 0 ? 'sleekflow.png' : index === 1 ? 'zincat.png' : 'virtusa.png'}`}
+                alt={`${exp.company} logo`}
+                sx={{
+                  width: 30,
+                  height: 30,
+                  objectFit: 'contain',
+                  borderRadius: '4px',
+                  filter: 'grayscale(0.2)',
+                  transition: 'all 0.3s ease-in-out',
+                  animation: 'glow 2s ease-in-out infinite',
+                  '@keyframes glow': {
+                    '0%': {
+                      boxShadow: '0 0 5px rgba(149, 117, 205, 0.5)',
+                      filter: 'grayscale(0.2)'
+                    },
+                    '50%': {
+                      boxShadow: '0 0 20px rgba(149, 117, 205, 0.8)',
+                      filter: 'grayscale(0)'
+                    },
+                    '100%': {
+                      boxShadow: '0 0 5px rgba(149, 117, 205, 0.5)',
+                      filter: 'grayscale(0.2)'
+                    }
+                  },
+                  '&:hover': {
+                    filter: 'grayscale(0)',
+                    transform: 'scale(1.1)',
+                    boxShadow: '0 0 25px rgba(149, 117, 205, 0.9)'
+                  }
+                }}
+              />
+              <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
+                {exp.company}
+              </Typography>
+            </Box>
             <Typography variant="body1" sx={{ mb: 2 }}>
               {exp.description}
             </Typography>
@@ -219,12 +273,46 @@ const Experience = () => {
             </IconButton>
 
             <Box sx={{ position: 'relative', zIndex: 1 }}>
-              <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 600, mb: 2 }}>
-                {experiences[selectedExp].title}
+              <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 600, mb: 2 }}>                {experiences[selectedExp].title}
               </Typography>
-              <Typography variant="subtitle1" sx={{ color: 'text.secondary', mb: 3 }}>
-                {experiences[selectedExp].company} • {experiences[selectedExp].date}
-              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+                <Box
+                  component="img"
+                  src={`/portfolio/${selectedExp === 0 ? 'sleekflow.png' : selectedExp === 1 ? 'zincat.png' : 'virtusa.png'}`}
+                  alt={`${experiences[selectedExp].company} logo`}
+                  sx={{
+                    width: 30,
+                    height: 30,
+                    objectFit: 'contain',
+                    borderRadius: '4px',
+                    filter: 'grayscale(0.2)',
+                    transition: 'all 0.3s ease-in-out',
+                    animation: 'glow 2s ease-in-out infinite',
+                    '@keyframes glow': {
+                      '0%': {
+                        boxShadow: '0 0 5px rgba(149, 117, 205, 0.5)',
+                        filter: 'grayscale(0.2)'
+                      },
+                      '50%': {
+                        boxShadow: '0 0 20px rgba(149, 117, 205, 0.8)',
+                        filter: 'grayscale(0)'
+                      },
+                      '100%': {
+                        boxShadow: '0 0 5px rgba(149, 117, 205, 0.5)',
+                        filter: 'grayscale(0.2)'
+                      }
+                    },
+                    '&:hover': {
+                      filter: 'grayscale(0)',
+                      transform: 'scale(1.1)',
+                      boxShadow: '0 0 25px rgba(149, 117, 205, 0.9)'
+                    }
+                  }}
+                />
+                <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
+                  {experiences[selectedExp].company} • {experiences[selectedExp].date}
+                </Typography>
+              </Box>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
                 {experiences[selectedExp].description}
               </Typography>

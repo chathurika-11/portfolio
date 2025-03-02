@@ -62,10 +62,26 @@ const Recommendations = () => {
         sx={{
           mb: 2,
           textAlign: 'center',
-          background: 'linear-gradient(45deg, #9575cd 30%, #b39ddb 90%)',
+          background: 'linear-gradient(45deg, rgb(169, 144, 212) 30%, #9575cd 90%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          fontWeight: 700
+          fontWeight: 700,
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+          position: 'relative',
+          WebkitTextStroke: '2px #000',
+          filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
+          '&::before': {
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(45deg, rgb(169, 144, 212) 30%, #9575cd 90%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '0',
+            zIndex: 2
+          },
         }}
         data-aos="fade-up"
       >

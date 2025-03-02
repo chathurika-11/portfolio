@@ -9,12 +9,28 @@ const About = () => {
         sx={{
           mb: 6,
           textAlign: 'center',
-          background: 'linear-gradient(45deg, #9575cd 30%, #b39ddb 90%)',
+          background: 'linear-gradient(45deg,rgb(169, 144, 212) 30%, #9575cd 90%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           fontWeight: 700,
           transform: 'scale(1)',
           transition: 'transform 0.3s ease-in-out',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+          position: 'relative',
+          WebkitTextStroke: '2px #000',
+          filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
+          '&::before': {
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(45deg,rgb(169, 144, 212) 30%, #9575cd 90%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '0',
+            zIndex: 2
+          },
           '&:hover': {
             transform: 'scale(1.05)'
           }
@@ -118,7 +134,7 @@ const About = () => {
               }
             }}
           >
-            I am a passionate Software QA Engineer with nearly five years of experience in ensuring software quality across web and mobile applications. My journey has taken me through Sri Lanka and Malaysia, giving me a global perspective on quality assurance practices in diverse work environments. I hold a Bachelor of Science (Hons) in Management Information Systems, which has played a crucial role in shaping my career as a QA Engineer today.👩🏻‍🎓
+            I am a dedicated Software QA Engineer with nearly five years of experience ensuring high-quality web and mobile applications. Having worked in Sri Lanka and Malaysia, I bring a global perspective on quality assurance in diverse work environments.👩🏻‍💻
           </Typography>
 
           <Typography 
@@ -134,7 +150,23 @@ const About = () => {
               }
             }}
           >
-            I am eager to contribute my experience to a company’s growth while continuously enhancing my skills and learning new things. I genuinely love being a Software QA Engineer because I find great satisfaction in delivering high-quality products.  To me, quality is not just a goal; it’s a responsibility and a passion.🤓
+            I hold a Bachelor of Science (Hons) in Management Information Systems, which has played a key role in shaping my career as a QA Engineer.👩🏻‍🎓
+          </Typography>
+
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              mb: 4, 
+              fontSize: '1.1rem', 
+              lineHeight: 1.8,
+              transform: 'translateY(0)',
+              transition: 'transform 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'translateY(-5px)'
+              }
+            }}
+          >
+            I genuinely love being a Software QA Engineer and find great satisfaction in delivering high-quality products. I thrive on identifying defects, improving processes, and ensuring seamless user experiences. I am eager to contribute my expertise to a company’s growth while continuously enhancing my skills. For me, quality isn’t just a goal; it’s a responsibility I take seriously.🤓
           </Typography>
 
           <Typography 
@@ -153,7 +185,7 @@ const About = () => {
               }
             }}
           >
-            Let’s connect and explore how my expertise can add value to your company, enhance product quality, and support your mission for continued success.🤝
+            Let’s connect to explore how my expertise can add value, improve product quality, and support your mission for continued success.🤝
           </Typography>
         </Paper>
       </Box>

@@ -152,26 +152,46 @@ const App = () => {
         </List>
       </Popover>
 
-      <Container maxWidth="lg">
-        <Box id="home" minHeight="100vh">
-          <Home />
+      <Box id="home" sx={{ position: 'relative', minHeight: '100vh' }}>
+        <Box
+          component="video"
+          autoPlay
+          muted
+          loop
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+            opacity: 0.6
+          }}
+        >
+          <source src="/portfolio/background.mp4" type="video/mp4" />
         </Box>
-        <Box id="about" minHeight="100vh" data-aos="fade-up">
-          <About />
-        </Box>
-        <Box id="skills" minHeight="100vh" data-aos="fade-up">
-          <Skills />
-        </Box>
-        <Box id="experience" minHeight="100vh" data-aos="fade-up">
-          <Experience />
-        </Box>
-        <Box id="recommendations" minHeight="100vh" data-aos="fade-up">
-          <Recommendations />
-        </Box>
-        <Box id="blog" minHeight="100vh" data-aos="fade-up">
-          <Blog />
-        </Box>
-      </Container>
+        <Container maxWidth="lg">
+          <Box sx={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+            <Home />
+          </Box>
+          <Box id="about" minHeight="100vh" data-aos="fade-up">
+            <About />
+          </Box>
+          <Box id="skills" minHeight="100vh" data-aos="fade-up">
+            <Skills />
+          </Box>
+          <Box id="experience" minHeight="100vh" data-aos="fade-up">
+            <Experience />
+          </Box>
+          <Box id="recommendations" minHeight="100vh" data-aos="fade-up">
+            <Recommendations />
+          </Box>
+          <Box id="blog" minHeight="100vh" data-aos="fade-up">
+            <Blog />
+          </Box>
+        </Container>
+      </Box>
     </Box>
   )
 }

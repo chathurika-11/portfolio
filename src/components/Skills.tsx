@@ -9,17 +9,17 @@ const Skills = () => {
     {
       title: 'Testing Types',
       icon: <TestingIcon />,
-      skills: ['Manual', 'Smoke', 'Sanity', 'System', 'Integration', 'Regression', 'UI/UX', 'End-to-End', 'Cross-browser', 'Re-testing', 'Ad-hoc', 'Database', 'API']
+      skills: ['Smoke Testing', 'Sanity Testing', 'System Testing', 'Integration Testing', 'Regression Testing', 'UI/UX Testing','Re-Testing','End-to-End Testing', 'Cross-Browser Testing','Ad-Hoc Testing','Database Testing', 'API Testing']
     },
     {
       title: 'Core Skills',
       icon: <AutomationIcon />,
-      skills: ['Test Case Design & Execution','Test Result Analysis','Defect Life Cycle','Defect Identification & Reporting','Agile Methodology','Problem Solving','Analytical Thinking','Communication','Cross-functional Team Collaboration']
+      skills: ['Requirement Analysis','Test Case Design & Execution','Test Result Analysis','Test Documentation','Defect Detection & Reporting','Agile & Scrum Practices','Effective Communication','Team Collaboration','Analytical & Problem-Solving Skills']
     },
     {
       title: 'Tools',
       icon: <BugReportIcon />,
-      skills: ['JIRA','ClickUp','TestFlight','Android Studio','Chrome DevTools','Notion','Postman']
+      skills: ['JIRA','ClickUp','TestFlight','Android Studio','Notion','Postman']
     },
     {
       title: 'Platforms',
@@ -36,10 +36,29 @@ const Skills = () => {
         sx={{
           mb: 6,
           textAlign: 'center',
-          background: 'linear-gradient(45deg, #9575cd 30%, #b39ddb 90%)',
+          background: 'linear-gradient(45deg, rgb(169, 144, 212) 30%, #9575cd 90%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          fontWeight: 700
+          fontWeight: 700,
+          transform: 'scale(1)',
+          transition: 'transform 0.3s ease-in-out',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+          position: 'relative',
+          WebkitTextStroke: '2px #000',
+          filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
+          '&::before': {
+            content: '"Skills"',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(45deg, rgb(169, 144, 212) 30%, #9575cd 90%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '0',
+            zIndex: 2
+          }
         }}
         data-aos="fade-up"
       >
